@@ -516,9 +516,9 @@ class JsonReader(BaseIterator):
 
     def _combine_lines(self, lines):
         """
-        Combines a list of JSON objects into one JSON object.
+        Combines a list of JSON objects into one JSON object
         """
-        lines = filter(None, map(lambda x: x.strip(), lines))
+        lines = filter(lambda x: x != '', map(lambda x: x.strip()[:-1], lines))
         return '[' + ','.join(lines) + ']'
 
     def read(self):
